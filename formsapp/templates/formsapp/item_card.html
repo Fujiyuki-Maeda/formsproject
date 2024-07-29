@@ -1,0 +1,47 @@
+{% load static %}
+<head>
+    <link href="{% static 'formsapp/css/item_card.css' %}" rel="stylesheet">
+</head>
+<table>
+    <tr>
+      <th>会員番号</th>
+      <td>{{ item.member_no }}</td>
+    </tr>
+    <tr>
+      <th>証明の種類</th>
+      <td>{{ item.id_number }}</td>
+    </tr>
+    <tr>
+      <th>氏名</th>
+      <td>{{ item.name }}</td>
+    </tr>
+    <tr>
+      <th>フリガナ</th>
+      <td>{{ item.furigana }}</td>
+    </tr>
+    <tr>
+      <th>性別</th>
+      <td>{{ item.get_gender_display }}</td>
+    </tr>
+    <tr>
+      <th>生年月日</th>
+      <td>{{ item.birth_year }}/{{ item.birth_month }}/{{ item.birth_day }}</td>
+    </tr>
+    <tr>
+      <th>電話番号</th>
+      <td>{{ item.phone_number }}</td>
+    </tr>
+    <tr>
+      <th>〒</th>
+      <td>{{ item.zip_code }}</td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td>{{ item.prefecture }}{{ item.city }}{{ item.address1}}{{ item.address2 }}</td>
+    </tr>
+    <tr>
+      <th>登録日</th>
+      <td>{{ item.created_at|date:"Y/m/d G:i:s" }}</td>
+    </tr>
+  </table>
+  

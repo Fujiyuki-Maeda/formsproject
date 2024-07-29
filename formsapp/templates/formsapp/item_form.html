@@ -1,0 +1,40 @@
+{% extends "./_base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{{ form.certifications.errors }}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center">新規会員登録</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="float-right">
+                <a class="btn btn-outline-secondary" href="{% url 'index' %}">戻る</a>
+                <button type="submit" form="myform" class="btn btn-outline-secondary save">保存</button>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form method="post" id="myform">
+                {%crispy form%}
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="float-right">
+                <a class="btn btn-outline-secondary" href="{% url 'index' %}">戻る</a>
+                <button type="submit" form="myform" class="btn btn-outline-secondary save">保存</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+{% endblock %}

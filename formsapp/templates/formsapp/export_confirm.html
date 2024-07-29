@@ -1,0 +1,37 @@
+{% extends "./_base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <h1>エクスポートの確認</h1>
+  
+  {% if items %}
+    <p>以下のデータをCSVファイルにエクスポートしますか?</p>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>会員証コード</th>
+          <th>会員名称</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+          <tr>
+            <td>{{ item.member_no }}</td>
+            <td>{{ item.name }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    
+    <form method="post" class="form">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <div class="d-flex justify-content-end">
+        <button type="submit" name="export" class="btn btn-primary">エクスポート</button>
+        <button type="submit" name="cancel" class="btn btn-secondary">キャンセル</button>
+      </div>
+    </form>
+  {% else %}
+    <p>エクスポートするデータがありません。</p>
+  {% endif %}
+{% endblock %}

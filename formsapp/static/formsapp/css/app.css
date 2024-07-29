@@ -1,0 +1,9 @@
+.row{
+    margin-top:3px;
+    margin-bottom:3px;
+}
+@media (max-width: 900px) {
+    .csv-export-btn {
+        display: none;
+    }
+}
